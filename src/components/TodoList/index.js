@@ -3,9 +3,6 @@ import s from "./style.module.css";
 import TodoListItem from "../TodoListItem";
 
 const TodoList = ({ todos }) => {
-  const style = {
-    fontSize: "18px",
-  };
 
   const liElements = todos.map((el) => {
     const {id, ...elProps} = el
