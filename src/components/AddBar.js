@@ -1,8 +1,19 @@
-import React from 'react';
+import React from "react";
 
 const AddBar = () => {
-    return (
-    <span>AddBar</span>
-)}
+  const text = "Place for typing todo";
+  const style = {
+    fontSize: '24px'
+  }
 
-export default AddBar
+  return (
+    <div>
+      <input
+        placeholder={text}
+        style={style}
+      />
+    </div>
+  );
+};
+
+export default AddBar;

@@ -1,8 +1,26 @@
-import React from 'react';
+import React from "react";
+import TodoListItem from "./TodoListItem";
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
+  const style = {
+    fontSize: "18px",
+  };
+
+  const liElements = todos.map((el) => {
+    const {id, ...elProps} = el
+
     return (
-    <span>TodoList</span>
-)}
+      <li key={id} style={style}>
+        <TodoListItem {...elProps} />
+      </li>
+    );
+  });
 
-export default TodoList
+  return (
+    <div>
+      <ul>{liElements}</ul>
+    </div>
+  );
+};
+
+export default TodoList;
