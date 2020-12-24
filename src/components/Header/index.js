@@ -3,7 +3,7 @@ import s from "./style.module.css";
 
 const Header = () => {
   return (
-    <header>
+    <header className={s.header}>
       <h1>Todo React</h1>
     </header>
   );
