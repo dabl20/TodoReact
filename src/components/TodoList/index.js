@@ -1,5 +1,6 @@
 import React from "react";
-import TodoListItem from "./TodoListItem";
+import s from "./style.module.css";
+import TodoListItem from "../TodoListItem";
 
 const TodoList = ({ todos }) => {
   const style = {
@@ -10,7 +11,7 @@ const TodoList = ({ todos }) => {
     const {id, ...elProps} = el
 
     return (
-      <li key={id} style={style}>
+      <li key={id} className={s.li}>
         <TodoListItem {...elProps} />
       </li>
     );

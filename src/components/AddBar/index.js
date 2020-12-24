@@ -1,16 +1,14 @@
 import React from "react";
+import s from "./style.module.css";
 
 const AddBar = () => {
   const text = "Place for typing todo";
-  const style = {
-    fontSize: '24px'
-  }
-
+  
   return (
     <div>
       <input
+        className={s.input}
         placeholder={text}
-        style={style}
       />
     </div>
   );
