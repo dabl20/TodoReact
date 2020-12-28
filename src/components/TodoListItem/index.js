@@ -22,7 +22,6 @@ export default class TodoListItem extends React.Component {
     };
 
     if (done) {
-      console.log("done");
       style.textDecorationLine = "line-through";
     }
 
