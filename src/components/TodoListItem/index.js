@@ -2,26 +2,15 @@ import React from "react";
 import s from "./style.module.css";
 
 export default class TodoListItem extends React.Component {
-  state = {
-    done: false,
-    important: false,
-  };
-
-  onTextClick = () => {
-    this.setState(({ done }) => {
-      return { done: !done };
-    });
-  };
-
-  impButtonClick = () => {
-    this.setState(({ important }) => {
-      return { important: !important };
-    });
-  };
-
   render() {
-    const { text, delButtonClick } = this.props;
-    const { important, done } = this.state;
+    const {
+      text,
+      delButtonClick,
+      onTextClick,
+      impButtonClick,
+      important,
+      done,
+    } = this.props;
 
     const styleClasses = [s.item];
 
@@ -35,11 +24,11 @@ export default class TodoListItem extends React.Component {
 
     return (
       <span>
-        <span className={styleClasses.join(" ")} onClick={this.onTextClick}>
+        <span className={styleClasses.join(" ")} onClick={onTextClick}>
           {text}
         </span>
         <button onClick={delButtonClick}>DEL</button>
-        <button onClick={this.impButtonClick}>IMP</button>
+        <button onClick={impButtonClick}>IMP</button>
       </span>
     );
   }

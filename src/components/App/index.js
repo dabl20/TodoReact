@@ -9,12 +9,22 @@ export default class App extends React.Component {
 
   state = {
     data: [
-      { id: 1, text: "Do it!" },
-      { id: 2, text: "Do it!" },
-      { id: 3, text: "Just Do it!", important: true },
-      { id: 4, text: "Do it!" },
+      this.createItem("Do IT!"),
+      this.createItem("Do IT!"),
+      this.createItem("Do IT!"),
+      this.createItem("Just Do IT!!!"),
+      this.createItem("Do IT!"),
     ],
   };
+
+  createItem(text) {
+    return {
+      id: this.countId++,
+      text,
+      done: false,
+      important: false,
+    };
+  }
 
   delItem = (id) => {
     this.setState(({ data }) => {
@@ -43,11 +53,47 @@ export default class App extends React.Component {
     });
   };
 
+  doneItem = (id) => {
+    console.log("doneItem", id);
+    this.setState(({ data }) => {
+      const idEl = data.findIndex((el) => el.id === id);
+
+      const oldItem = data[idEl];
+      const newItem = { ...oldItem, done: !oldItem.done };
+
+      const newArr = [...data.slice(0, idEl), newItem, ...data.slice(idEl + 1)];
+
+      return {
+        data: newArr,
+      };
+    });
+  };
+  importantItem = (id) => {
+    console.log("importantItem", id);
+    this.setState(({ data }) => {
+      const idEl = data.findIndex((el) => el.id === id);
+
+      const oldItem = data[idEl];
+      const newItem = { ...oldItem, important: !oldItem.important };
+
+      const newArr = [...data.slice(0, idEl), newItem, ...data.slice(idEl + 1)];
+
+      return {
+        data: newArr,
+      };
+    });
+  };
+
   render() {
     return (
       <div className={s.App}>
         <Header />
-        <TodoList todos={this.state.data} delButtonClick={this.delItem} />
+        <TodoList
+          todos={this.state.data}
+          delButtonClick={this.delItem}
+          onTextClick={this.doneItem}
+          impButtonClick={this.importantItem}
+        />
         <AddBar addButtonClick={this.addItem} />
       </div>
     );
