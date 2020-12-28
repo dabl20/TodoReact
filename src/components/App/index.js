@@ -54,41 +54,36 @@ export default class App extends React.Component {
     });
   };
 
+  switchPropKey(arr, id, nameKey) {
+    const idEl = arr.findIndex((el) => el.id === id);
+
+    const oldItem = arr[idEl];
+    const newItem = { ...oldItem, [nameKey]: !oldItem[nameKey] };
+
+    return [...arr.slice(0, idEl), newItem, ...arr.slice(idEl + 1)];
+  }
+
   doneItem = (id) => {
     this.setState(({ data }) => {
-      const idEl = data.findIndex((el) => el.id === id);
-
-      const oldItem = data[idEl];
-      const newItem = { ...oldItem, done: !oldItem.done };
-
-      const newArr = [...data.slice(0, idEl), newItem, ...data.slice(idEl + 1)];
-
       return {
-        data: newArr,
+        data: this.switchPropKey(data, id, "done"),
       };
     });
   };
 
   importantItem = (id) => {
     this.setState(({ data }) => {
-      const idEl = data.findIndex((el) => el.id === id);
-
-      const oldItem = data[idEl];
-      const newItem = { ...oldItem, important: !oldItem.important };
-
-      const newArr = [...data.slice(0, idEl), newItem, ...data.slice(idEl + 1)];
-
       return {
-        data: newArr,
+        data: this.switchPropKey(data, id, "important"),
       };
     });
   };
 
   render() {
     const { data } = this.state;
-    
+
     const doneInfo = data.filter((el) => el.done).length;
-    const todoInfo = data.length - doneInfo
+    const todoInfo = data.length - doneInfo;
 
     return (
       <div className={s.App}>
