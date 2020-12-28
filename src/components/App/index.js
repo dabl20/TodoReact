@@ -95,7 +95,9 @@ export default class App extends React.Component {
           onTextClick={this.doneItem}
           impButtonClick={this.importantItem}
         />
-        <AddBar addButtonClick={this.addItem} />
+        <AddBar
+          addItemText={this.addItem}
+        />
       </div>
     );
   }
