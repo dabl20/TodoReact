@@ -3,11 +3,12 @@ import s from "./style.module.css";
 
 export default class AddBar extends React.Component {
   render() {
-    const text = "Place for typing todo";
+    const { addButtonClick } = this.props;
 
     return (
       <div>
-        <input className={s.input} placeholder={text} />
+        <input className={s.input} placeholder="Place for typing todo" />
+        <button onClick={() => addButtonClick('some text')}>ADD</button>
       </div>
     );
   }
