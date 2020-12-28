@@ -68,6 +68,7 @@ export default class App extends React.Component {
       };
     });
   };
+
   importantItem = (id) => {
     this.setState(({ data }) => {
       const idEl = data.findIndex((el) => el.id === id);
@@ -85,6 +86,7 @@ export default class App extends React.Component {
 
   render() {
     const { data } = this.state;
+    
     const doneInfo = data.filter((el) => el.done).length;
     const todoInfo = data.length - doneInfo
 
@@ -93,7 +95,7 @@ export default class App extends React.Component {
         <Header />
         <InfoBar todo={todoInfo} done={doneInfo} />
         <TodoList
-          todos={this.state.data}
+          todos={data}
           delButtonClick={this.delItem}
           onTextClick={this.doneItem}
           impButtonClick={this.importantItem}
