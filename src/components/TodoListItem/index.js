@@ -7,7 +7,6 @@ export default class TodoListItem extends React.Component {
   };
 
   onTextClick = () => {
-    console.log(this.props.text);
     this.setState(({ done }) => {
       return { done: !done };
     });
