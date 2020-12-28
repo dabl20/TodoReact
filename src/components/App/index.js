@@ -3,9 +3,10 @@ import s from "./style.module.css";
 import Header from "../Header";
 import TodoList from "../TodoList";
 import AddBar from "../AddBar";
+import InfoBar from "../InfoBar";
 
 export default class App extends React.Component {
-  countId = 1000;
+  countId = 0;
 
   state = {
     data: [
@@ -54,7 +55,6 @@ export default class App extends React.Component {
   };
 
   doneItem = (id) => {
-    console.log("doneItem", id);
     this.setState(({ data }) => {
       const idEl = data.findIndex((el) => el.id === id);
 
@@ -69,7 +69,6 @@ export default class App extends React.Component {
     });
   };
   importantItem = (id) => {
-    console.log("importantItem", id);
     this.setState(({ data }) => {
       const idEl = data.findIndex((el) => el.id === id);
 
@@ -85,9 +84,14 @@ export default class App extends React.Component {
   };
 
   render() {
+    const { data } = this.state;
+    const doneInfo = data.filter((el) => el.done).length;
+    const todoInfo = data.length - doneInfo
+
     return (
       <div className={s.App}>
         <Header />
+        <InfoBar todo={todoInfo} done={doneInfo} />
         <TodoList
           todos={this.state.data}
           delButtonClick={this.delItem}
