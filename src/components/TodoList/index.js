@@ -4,13 +4,13 @@ import TodoListItem from "../TodoListItem";
 
 export default class TodoList extends React.Component {
   render() {
-    const {todos} = this.props
+    const { todos, delButtonClick } = this.props;
     const liElements = todos.map((el) => {
       const { id, ...elProps } = el;
 
       return (
         <li key={id} className={s.li}>
-          <TodoListItem {...elProps} />
+          <TodoListItem {...elProps} delButtonClick={() => delButtonClick(id)} />
         </li>
       );
     });

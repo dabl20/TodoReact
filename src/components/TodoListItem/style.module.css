@@ -1,3 +1,11 @@
 .item:hover {
   background-color: khaki;
 }
+
+.done {
+  text-decoration-line: line-through;
+}
+
+.important {
+  font-weight: bold;
+}
