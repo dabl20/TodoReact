@@ -1,9 +1,10 @@
 import React from "react";
-import s from "./style.module.css";
-import Header from "../Header";
-import TodoList from "../TodoList";
-import AddBar from "../AddBar";
-import InfoBar from "../InfoBar";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Header from "./components/Header";
+import TodoList from "./components/TodoList";
+import AddBar from "./components/AddBar";
+import InfoBar from "./components/InfoBar";
 
 export default class App extends React.Component {
   countId = 0;
@@ -86,8 +87,8 @@ export default class App extends React.Component {
     const todoInfo = data.length - doneInfo;
 
     return (
-      <div className={s.App}>
-        <Header />
+      <article className='container'>
+        <Header/>
         <InfoBar todo={todoInfo} done={doneInfo} />
         <TodoList
           todos={data}
@@ -98,7 +99,7 @@ export default class App extends React.Component {
         <AddBar
           addItemText={this.addItem}
         />
-      </div>
+      </article>
     );
   }
 }

@@ -1,10 +1,9 @@
 import React from "react";
-import s from "./style.module.css";
 
 export default class Header extends React.Component {
   render() {
     return (
-      <header className={s.header}>
+      <header className='row'>
         <h1>Todo React</h1>
       </header>
     );

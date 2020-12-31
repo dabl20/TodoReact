@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./style.module.css";
-import TodoListItem from "../TodoListItem";
+import TodoListItem from "./TodoListItem";
 
 export default class TodoList extends React.Component {
   render() {
