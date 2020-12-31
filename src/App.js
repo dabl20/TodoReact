@@ -1,7 +1,7 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import Header from "./components/Header";
+import Title from "./components/Title";
 import TodoList from "./components/TodoList";
 import AddBar from "./components/AddBar";
 import InfoBar from "./components/InfoBar";
@@ -87,19 +87,23 @@ export default class App extends React.Component {
     const todoInfo = data.length - doneInfo;
 
     return (
-      <article className='container'>
-        <Header/>
-        <InfoBar todo={todoInfo} done={doneInfo} />
-        <TodoList
-          todos={data}
-          delButtonClick={this.delItem}
-          onTextClick={this.doneItem}
-          impButtonClick={this.importantItem}
-        />
-        <AddBar
-          addItemText={this.addItem}
-        />
-      </article>
+      <div className="container d-flex justify-content-center">
+        <header>
+          <Title />
+          <InfoBar todo={todoInfo} done={doneInfo} />
+        </header>
+        <main>
+          <TodoList
+            todos={data}
+            delButtonClick={this.delItem}
+            onTextClick={this.doneItem}
+            impButtonClick={this.importantItem}
+          />
+        </main>
+        <footer>
+          <AddBar addItemText={this.addItem} />
+        </footer>
+      </div>
     );
   }
 }
