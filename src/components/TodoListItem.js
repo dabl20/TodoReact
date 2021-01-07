@@ -23,13 +23,13 @@ export default class TodoListItem extends React.Component {
     }
 
     return (
-      <span>
+      <div className="p-3 border bg-light">
+        <button onClick={delButtonClick}>DEL</button>
+        <button onClick={impButtonClick}>IMP</button>
         <span className={styleClasses.join(" ")} onClick={onTextClick}>
           {text}
         </span>
-        <button onClick={delButtonClick}>DEL</button>
-        <button onClick={impButtonClick}>IMP</button>
-      </span>
+      </div>
     );
   }
 }

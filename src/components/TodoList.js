@@ -21,9 +21,7 @@ export default class TodoList extends React.Component {
     });
 
     return (
-      <div>
         <ul>{liElements}</ul>
-      </div>
     );
   }
 }

@@ -22,15 +22,17 @@ export default class AddBar extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmitForm}>
-        <input
-          className={s.input}
-          placeholder="Place for typing todo"
-          onChange={this.onChangeInput}
-          value={this.state.text}
-        />
-        <button>ADD</button>
-      </form>
+      <div>
+        <form onSubmit={this.onSubmitForm}>
+          <input
+            className={s.input}
+            placeholder="Place for typing todo"
+            onChange={this.onChangeInput}
+            value={this.state.text}
+          />
+          <button>ADD</button>
+        </form>
+      </div>
     );
   }
 }

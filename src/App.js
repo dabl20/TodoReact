@@ -87,12 +87,12 @@ export default class App extends React.Component {
     const todoInfo = data.length - doneInfo;
 
     return (
-      <div className="container d-flex justify-content-center">
-        <header>
+      <div className="container d-flex flex-column">
+        <header className="row align-items-start mb-3">
           <Title />
           <InfoBar todo={todoInfo} done={doneInfo} />
         </header>
-        <main>
+        <main className="row">
           <TodoList
             todos={data}
             delButtonClick={this.delItem}
@@ -100,7 +100,7 @@ export default class App extends React.Component {
             impButtonClick={this.importantItem}
           />
         </main>
-        <footer>
+        <footer className="row align-items-end mt-3">
           <AddBar addItemText={this.addItem} />
         </footer>
       </div>
